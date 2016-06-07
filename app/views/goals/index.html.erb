@@ -1,0 +1,11 @@
+<h1>All Goals</h1>
+
+<% unless @goals.empty? %>
+  <ul>
+  <% @goals.each do |goal| %>
+    <li><%= link_to "#{User.find(goal.user_id).username} : #{goal.title}", goal_url(goal) %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Create New Goal", new_goal_url %>
